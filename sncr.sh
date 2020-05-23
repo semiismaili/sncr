@@ -1,5 +1,5 @@
 #!/bin/bash
-hiddenfolder=$HOME/.serget
+hiddenfolder=$HOME/.sncr
 config () {
     read -p "Server IP or DNS: " serverip
     while [ -z "${serverip}" ]
@@ -14,12 +14,12 @@ config () {
         read -p "Server user: " serverusername
     done
     read -p "Sync frequency [in minutes , default (0) means no automatic sync]: " minutes
-    read -p "Path to local directory where the content is to be copied (default is $HOME/serget_files): " local_dir
+    read -p "Path to local directory where the content is to be copied (default is $HOME/sncr_files): " local_dir
     mkdir -p $hiddenfolder
-    touch $hiddenfolder/serget.conf
+    touch $hiddenfolder/sncr.conf
     if [ -z "${local_dir}" ] 
     then
-        local_dir=$HOME/serget_files
+        local_dir=$HOME/sncr_files
     fi
     if [ ! -d "${local_dir}" ] 
     then
@@ -34,10 +34,10 @@ config () {
     then
         minutes=0
     fi
-    echo "SERVER_IP=$serverip" > $hiddenfolder/serget.conf
-    echo "SERVER_USERNAME=$serverusername" >> $hiddenfolder/serget.conf
-    echo "SYNC_MINUTES=$minutes" >> $hiddenfolder/serget.conf
-    echo "LOCAL_DIR=$local_dir" >> $hiddenfolder/serget.conf
+    echo "SERVER_IP=$serverip" > $hiddenfolder/sncr.conf
+    echo "SERVER_USERNAME=$serverusername" >> $hiddenfolder/sncr.conf
+    echo "SYNC_MINUTES=$minutes" >> $hiddenfolder/sncr.conf
+    echo "LOCAL_DIR=$local_dir" >> $hiddenfolder/sncr.conf
     echo "New configuration saved!"
 }
 if [ "$1" = "-config" ]
@@ -46,11 +46,11 @@ then
     exit 1
 elif [ $# -eq 0 ] 
     then #actual work
-    if [ ! -f $hiddenfolder/serget.conf ] || [ ! -s $hiddenfolder/serget.conf ] #if conf file doesnt exist or is empty
+    if [ ! -f $hiddenfolder/sncr.conf ] || [ ! -s $hiddenfolder/sncr.conf ] #if conf file doesnt exist or is empty
     then
         config
     fi
-    . $hiddenfolder/serget.conf
+    . $hiddenfolder/sncr.conf
     address="$SERVER_USERNAME@$SERVER_IP"
     minutes=$SYNC_MINUTES
     local_dir=$LOCAL_DIR
