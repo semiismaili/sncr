@@ -1,6 +1,6 @@
 #!/bin/bash
 
-##################################### USAGE #####################################
+##################################### USAGE v1.0.0 ################################
 usage="Usage:\n
     sncr (Will run the sync with the provided configuration, if no config is provided it will prompt you for the inital configuration.) \n
     sncr -config (Will bring the configuration prompt where you can change parameters) \n
@@ -15,8 +15,8 @@ usage="Usage:\n
     \n
     sncr -last (outputs when the last successfull sync happened) \n
 
-    sncr -install (moves the sncr script to /usr/bin and deletes the cloned sncr folder cloned from git) \n
-
+    ./sncr.sh -install (installs sncr by moving the sncr.sh script to /usr/bin and deletes the sncr folder cloned from git) \n
+    sncr -update (updates /usr/bin/sncr to the latest version from git) \n
     sncr -help (outputs this usage screen)"    
 ##################################################################################
 hiddenfolder=$HOME/.sncr
@@ -108,6 +108,21 @@ elif [ "$1" = "-install" ]
             echo "Successfully installed sncr to /usr/bin/sncr"
         else
             echo "sncr is already installed"
+        fi
+elif [ "$1" = "-update" ]
+    then
+        echo "Checking if sncr is installed.."
+        which sncr
+        if [ "$?" -eq "0" ]
+        then
+            git clone https://gitlab.com/semiismaili/sncr.git
+            cd sncr
+            sudo cp sncr.sh /usr/bin/sncr
+            cd ..
+            rm -rf sncr
+            echo "Successfully updated sncr at /usr/bin/sncr"
+        else
+            echo "No sncr installation found at /usr/bin/, please run ./sncr.sh -install first or -help for more info."
         fi
 elif [ $# -eq 0 ] 
     then #actual work

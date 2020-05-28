@@ -1,4 +1,4 @@
-#sncr
+# sncr
 a synchronization shell script
 
 *sncr* is a wrapper script around rsync that uses rsync to retrieve content from a remote server
@@ -7,7 +7,9 @@ Installation:
 -
      1. Open up a terminal 
      2. Run the following commands:
-        (WIP)
+        git clone https://gitlab.com/semiismaili/sncr.git
+        cd sncr
+        ./sncr -install
 Usage:
 -
     sncr (Will run the sync with the provided configuration, if no config is provided it will prompt you for the inital configuration.)
@@ -24,5 +26,6 @@ Usage:
     sncr -log -n <number> (outpots only the last <number> lines of the last logfile)
     
     sncr -last (outputs when the last successfull sync happened)
-    
+    ./sncr.sh -install (installs sncr by moving the sncr script to /usr/bin and deletes the sncr folder cloned from git)
+    sncr -update (updates /usr/bin/sncr to the latest version from git)
     sncr -help (outputs this usage screen)
