@@ -9,7 +9,7 @@ Installation:
      2. Run the following commands:
         git clone https://gitlab.com/semiismaili/sncr.git
         cd sncr
-        ./sncr -install
+        ./sncr.sh -install
 Usage:
 -
     sncr (Will run the sync with the provided configuration, if no config is provided it will prompt you for the inital configuration.)
