@@ -145,9 +145,8 @@ elif [ $# -eq 0 ]
         then
             break
         fi
-        #sleep $minutes
+        sleep $minutes
     done
-    #TODO bashrc
 else
        echo "sncr: Invalid usage, run -h for usage info!"
 fi
