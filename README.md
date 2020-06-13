@@ -23,7 +23,7 @@ vice-versa.
 Setting up the rsync daemon:
 -
  This setup needs to be done int the server machine that will be broadcasting the data,
- this is what sncr will communicate with
+ this is what sncr will communicate with.
  Here's the [guide](https://www.atlantic.net/vps-hosting/how-to-setup-rsync-daemon-linux-server/#gsc.tab=0) that we used     
     
 
