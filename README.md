@@ -49,7 +49,7 @@ Usage:
         requires absoulute path, default is $HOME/sncr_files)
         
     sncr -log (outputs the content of the last logfile)
-    sncr -log -n <number> (outpots only the last <number> lines of the last logfile)
+    sncr -log -n <number> (outputs only the last <number> lines of the last logfile)
     
     sncr -last (outputs when the last successfull sync happened)
     ./sncr.sh -install (moves the sncr script to /usr/bin and deletes the sncr folder cloned from git)
