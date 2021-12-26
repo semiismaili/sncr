@@ -55,3 +55,7 @@ Usage:
     ./sncr.sh -install (moves the sncr script to /usr/bin and deletes the sncr folder cloned from git)
     sncr -update (updates /usr/bin/sncr to the latest version from git)
     sncr -help (outputs this usage screen)
+    
+Send some love:
+-
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/semiismaili)
